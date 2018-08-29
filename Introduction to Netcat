@@ -1,0 +1,82 @@
+gNetcat -> transfer data between (tcp and udp ) two computer.
+usage : Chat or messaging server etc,collect infos from services, port scanning etc
+
+
+
+To know the port number you have to :
+
+"netstat -a"
+
+this give all the ports, use UPD port : 61030
+
+in linux :
+nc -l -p 61030
+
+open another window:
+nc ipaddress(172.31.90.101) 61030
+
+now you can communitate between two terminals
+
+for windows:
+you need to install netcat for windows
+run nc.exe
+-> G:\Netcat>nc.exe 172.31.90.101 61030
+
+now you can commincate with linux and windows:
+
+
+HOW TO KNOW PORT NUMBER.
+type : netstat -a
+
+  UDP    0.0.0.0:50849          *:*
+  UDP    127.0.0.1:1900         *:*
+  UDP    127.0.0.1:49342        *:*
+  UDP    127.0.0.1:49678        *:*
+  UDP    127.0.0.1:52886        *:*
+  UDP    127.0.0.1:59535        *:*
+  UDP    127.0.0.1:63895        *:*
+  UDP    172.27.36.12:137       *:*
+  UDP    172.27.36.12:138       *:*
+  UDP    172.27.36.12:1900      *:*
+  UDP    172.27.36.12:49677     *:*
+
+  172.27.36.12:1900 -> 1900 is the port number.
+  but i am using "61030"
+  
+ 
+
+To send file from linux to windows:
+
+create an file called technolust1.txt -> add some text.
+
+In linux:
+"nc -v -w 30 61030 - l < technolust1.txt"
+press enter  
+in windows:
+"nc -v -w 2 172.31.90.101 61030 > technolust1.txt"
+press enter
+
+file would be transfer between linux to windows.
+
+
+
+Now to do vice-versa :
+
+in windows :
+"nc -v -w 30 -p 61030 -l < techno.txt"
+
+in linux:
+"nc -v -w 2 172.27.36.12 61030 > techno.txt"
+
+in windows:
+G:\Netcat>nc -v -w 30 -p 61030 -l < techno.txt
+listening on [any] 61030 ...
+connect to [172.27.36.12] from rkiran-lws.luxoft.com [172.31.90.101] 59770
+
+in linux:
+Connection to 172.27.36.12 61030 port [tcp/*] succeeded.
+
+
+if > techo.txt is to create or any file to copy the content and it will display in the terminal.
+
+----------------------
