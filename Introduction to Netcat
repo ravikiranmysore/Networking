@@ -1,4 +1,4 @@
-gNetcat -> transfer data between (tcp and udp ) two computer.
+Netcat -> transfer data between (tcp and udp ) two computer.
 usage : Chat or messaging server etc,collect infos from services, port scanning etc
 
 
